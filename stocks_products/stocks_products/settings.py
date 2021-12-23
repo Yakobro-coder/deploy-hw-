@@ -79,14 +79,11 @@ WSGI_APPLICATION = 'stocks_products.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = os.getenv('DATABASES',
-                      default="{"
-                              "'default': {"
-                              "'ENGINE': 'django.db.backends.sqlite3',"
-                              "'NAME': 'database_sqlite',"
-                              "}"
-                              "}")
-
+# DATABASES = os.getenv('DATABASES' ,default="{'default':{'ENGINE': 'django.db.backends.sqlite3','NAME': 'database_sqlite',}}")
+DATABASES = {
+    'default': os.getenv('DATABASES', default={'ENGINE': 'django.db.backends.sqlite3',
+                                               'NAME': 'sqlite_database'})
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
